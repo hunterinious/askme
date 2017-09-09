@@ -92,9 +92,9 @@ class UsersController < ApplicationController
     # @user.questions.
     @new_question = @user.questions.build
 
-    @questions_count = @user.questions.count
-    @answers_count = 0
-    @unanswered_count = 0
+    @questions_count = @questions.count
+    @answers_count = @questions.where.not(answer: nil).count
+    @unanswered_count = @questions_count - @answers_count
   end
 
   private

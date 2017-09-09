@@ -10,6 +10,8 @@ gem 'rails', '~> 5.1.3'
 
 gem 'uglifier'
 
+gem 'rails_12factor'
+
 gem 'jquery-rails'
 
 
