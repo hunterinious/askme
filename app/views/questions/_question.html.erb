@@ -14,7 +14,16 @@
     <% end %>
 
     <div class="question-date">
-      <%= question.created_at.strftime('%d %b %M:%H') %>
+      <%= l(question.created_at, format: :short) %>
+      <% if question.author %>
+          <% unless question.user.id == question.author.id %>
+              <%= link_to "@#{question.author.username}", user_path(question.author), class: "column-right" %>
+          <% else %>
+              <p class= "column-right">
+                <%= "@#{question.author.username}" %>
+              </p>
+          <% end %>
+      <% end %>
     </div>
   </div>
 
