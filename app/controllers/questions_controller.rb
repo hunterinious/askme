@@ -1,11 +1,3 @@
-# (c) goodprogrammer.ru
-#
-# Контроллер, управляющий вопросами. Действия:
-#
-# 1. Редактирует вопрос
-# 2. Создает вопрос
-# 3. Удаляет вопрос
-#
 class QuestionsController < ApplicationController
   # Инициализируем объект вопрос для экшенов кроме :edit, :update, :destroy
   before_action :load_question, only: [:edit, :update, :destroy]
@@ -86,7 +78,7 @@ class QuestionsController < ApplicationController
     # Защита от уязвимости: если текущий пользователь — адресат вопроса,
     # он может менять ответы на вопрос, ему доступно также поле :answer.
     if current_user.present? &&
-       params[:question][:user_id].to_i == current_user.id
+        params[:question][:user_id].to_i == current_user.id
       params.require(:question).permit(:user_id, :text, :answer)
     else
       params.require(:question).permit(:user_id, :text)
