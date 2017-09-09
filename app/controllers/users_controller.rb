@@ -51,6 +51,10 @@ class UsersController < ApplicationController
     # Болванка для нового вопроса
     @new_question = Question.new
 
+    @questions_count = @questions.size
+    @answers_count = 0 # @questions.where.not(answer:nil).count
+    @unanswered_count = 0# @questions_count - @answers_count
+
     # Обратите внимание, пока ни одна из болванок не достается из базы
   end
 end
