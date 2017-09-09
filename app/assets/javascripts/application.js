@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require rails-ujs
 //= require_tree .
 
 // Этот код добавляет обработчик события выдвигания формы при клике на кнопку
