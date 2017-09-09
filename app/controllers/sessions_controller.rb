@@ -13,11 +13,11 @@ class SessionsController < ApplicationController
   # Создает в объекте session новый факт залогиненности пользователя, если он
   # правильно сообщил мэйл/пароль
   def create
-    @user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:email], params[:password])
 
-    if @user.present?
-      session[:user_id] = @user.id
-      redirect_to root_url, notice: 'вы успешно залогинились'
+    if user.present?
+      session[:user_id] = user.id
+      redirect_to root_url, notice: 'Вы успешно залогинились'
     else
       flash.now.alert = 'Неправильный мэйл или пароль'
       render :new
