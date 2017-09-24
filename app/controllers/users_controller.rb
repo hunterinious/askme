@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @tags = Tag.all
   end
 
   # Действие new будет отзываться по адресу /users/new

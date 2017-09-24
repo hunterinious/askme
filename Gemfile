@@ -5,15 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'rails', '~> 5.1.3'
-
 gem 'uglifier'
-
 gem 'rails_12factor'
-
 gem 'jquery-rails'
-
+gem 'devise'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

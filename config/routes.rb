@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # Ресурс вопросов (кроме экшенов :show, :new, :index)
   resources :questions, except: [:show, :new, :index]
 
+  resources :tags, only: :show, param: :name
   # Синонимы путей — в дополнение к созданным в ресурсах выше.
   #
   # Для любознательных: синонимы мы добавили, чтобы показать одну вещь и потом
