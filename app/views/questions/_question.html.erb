@@ -4,17 +4,21 @@
 <div class="question">
   <div class="question-content">
     <div class="question-text text-lead">
-      <%= make_tags_links(question.text).html_safe %>
+      <%= question.text %>
     </div>
 
     <% if question.answer.present? %>
         <div class="question-answer text-lead">
-          <%= make_tags_links(question.answer).html_safe %>
+          <%= question.answer %>
         </div>
     <% end %>
 
     <div class="question-date">
       <%= l(question.created_at, format: :short) %>
+      <% tags = question.tags %>
+      <% tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag.name.delete("#")) %>
+      <% end %>
       <% if question.author %>
           <% unless question.user.id == question.author.id %>
               <%= link_to "@#{question.author.username}", user_path(question.author), class: "column-right" %>

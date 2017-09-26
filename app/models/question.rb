@@ -15,7 +15,7 @@ class Question < ApplicationRecord
     parse_text = self.text.to_s + ' ' + self.answer.to_s
 
     self.tags = Tag.parse_hash_tags(parse_text).map do |tag_name|
-        Tag.find_or_create_by(name: to_downcase(tag_name))
+      Tag.find_or_create_by(name: to_downcase(tag_name))
     end
   end
 end

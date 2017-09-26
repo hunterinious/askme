@@ -20,4 +20,8 @@
   <% end %>
 </div>
 
-<%= render partial: 'tags/list', object: @tags %>
+<div class = "buffer-both">
+  <% @tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</div>
