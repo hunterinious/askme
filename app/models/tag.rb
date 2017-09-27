@@ -11,6 +11,10 @@ class Tag < ApplicationRecord
     self.name = to_downcase(name) if name.present?
   end
 
+  def self.parse_hash_tags(text)
+    text.scan(REGEXP_HASH_TAG)
+  end
+
   def self.remove_unlinked_tags!
     Tag.left_outer_joins(:questions).where(questions: { id: nil }).destroy_all
   end
