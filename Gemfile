@@ -11,6 +11,7 @@ gem 'rails_12factor'
 gem 'jquery-rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
