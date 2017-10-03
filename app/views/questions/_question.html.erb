@@ -15,9 +15,8 @@
 
     <div class="question-date">
       <%= l(question.created_at, format: :short) %>
-      <% tags = question.tags %>
-      <% tags.each do |tag| %>
-          <%= link_to tag.name, tag_path(tag.name.delete("#")) %>
+      <% question.tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag) %>
       <% end %>
       <% if question.author %>
           <% unless question.user.id == question.author.id %>

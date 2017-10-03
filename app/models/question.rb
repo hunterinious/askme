@@ -9,7 +9,7 @@ class Question < ApplicationRecord
 
   before_save :update_tags
 
-  after_commit { Tag.remove_unlinked_tags! }
+  # after_commit { Tag.remove_unlinked_tags! }
 
   def update_tags
     parse_text = self.text.to_s + ' ' + self.answer.to_s

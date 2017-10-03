@@ -15,7 +15,11 @@ class Tag < ApplicationRecord
     text.scan(REGEXP_HASH_TAG)
   end
 
-  def self.remove_unlinked_tags!
-    Tag.left_outer_joins(:questions).where(questions: { id: nil }).destroy_all
+  # def self.remove_unlinked_tags!
+  #   Tag.left_outer_joins(:questions).where(questions: { id: nil }).destroy_all
+  # end
+
+  def to_param
+    name.delete('#')
   end
 end
