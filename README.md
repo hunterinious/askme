@@ -1,24 +1,39 @@
-# README
+# The application "Good questions"
+## Educational application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Annotation
+The project was implemented on Ruby on Rails (v5.1.2) for educational purposes.
 
-Things you may want to cover:
+## Short description
+The application is designed to communicate between users in the format of "question - answer".
 
-* Ruby version
+## Tested / used technologies:
+- reCaptcha, including (in the latest version) Invisible Recapthca
+- Many-to-many connection (hashtag functionality)
+- Trigram search (search for questions with similar hashtags)
 
-* System dependencies
+## Install and Run
+Before running the application, you must install all the necessary gems and prepare the database. To do this, in the console in the directory with the application, you must run the following commands:
 
-* Configuration
+```
+bundle install
+bundle exec rake db: migrate
+```
 
-* Database creation
+And it is also necessary to set the environment variables for the reCaptcha operation:
 
-* Database initialization
+```
+RECAPTCHA_ASKME_SITE_KEY
+RECAPTCHA_ASKME_SECRET_KEY
+```
 
-* How to run the test suite
+To start the local server, run the following command:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle exec rails s
+```
 
-* Deployment instructions
+The list of all used gems is specified in the Gemfile file.
 
-* ...
+## Demo
+The latest current version of the application is running [here](https://fakeaskme.herokuapp.com/)
